@@ -10,19 +10,27 @@ import Foundation
 import Combine
 
 class TaskListViewModel: ObservableObject {
+    @Published var taskResposity = TaskRepository()
+    
     // Ensure any change on the Task can be listened to with published annotation
     @Published var taskCellViewModels = [TaskCellViewModel]()
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        self.taskCellViewModels = testDataTasks.map { task in
-            TaskCellViewModel(task: task)
+        taskResposity.$tasks.map { tasks in
+            tasks.map { task in
+                TaskCellViewModel(task: task)
+            }
         }
+        .assign(to: \.taskCellViewModels, on: self)
+        .store(in: &cancellables)
     }
     
     func addTask(task: Task) {
-        let taskVM = TaskCellViewModel(task: task)
-        self.taskCellViewModels.append(taskVM);
+        taskResposity.addTask(task)
+        
+//        let taskVM = TaskCellViewModel(task: task)
+//        self.taskCellViewModels.append(taskVM);
     }
 }
