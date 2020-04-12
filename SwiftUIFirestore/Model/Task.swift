@@ -15,6 +15,7 @@ struct Task: Codable, Identifiable {
     @ServerTimestamp var createdTime: Timestamp?
     var title: String
     var completed: Bool
+    var userId: String?
 }
 
 
