@@ -9,15 +9,27 @@
 import SwiftUI
 
 struct TaskListView: View {
+    @ObservedObject var taskListVM = TaskListViewModel()
     let tasks = testDataTasks
+    
+    @State var presentNewItem = false
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                List(tasks) { task in
-                    TaskCell(task: task)
+                List {
+                    ForEach(taskListVM.taskCellViewModels) { taskCellVM in
+                        TaskCell(taskCellVM: taskCellVM)
+                    }
+                    
+                    if presentNewItem {
+                        TaskCell(taskCellVM: TaskCellViewModel(task: Task(title: "", completed: false))) { task in
+                            self.taskListVM.addTask(task: task)
+                            self.presentNewItem.toggle()
+                        }
+                    }
                 }
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: { self.presentNewItem.toggle() }) {
                     HStack {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
@@ -37,14 +49,21 @@ struct TaskListView_Previews: PreviewProvider {
 }
 
 struct TaskCell: View {
-    let task: Task
+    @ObservedObject var taskCellVM: TaskCellViewModel
+    
+    var onCommit: (Task) -> Void = { _ in }
 
     var body: some View {
         HStack {
-            Image(systemName: task.completed ? "checkmark.circle.fill" : "circle")
+            Image(systemName: taskCellVM.task.completed ? "checkmark.circle.fill" : "circle")
                 .resizable()
                 .frame(width: 20.0, height: 20.0)
-            Text(task.title)
+                .onTapGesture {
+                    self.taskCellVM.task.completed.toggle()
+            }
+            TextField("Enter the task title", text: $taskCellVM.task.title, onCommit: {
+                self.onCommit(self.taskCellVM.task)
+            })
         }
     }
 }

@@ -16,6 +16,8 @@
 		49A0AB5E244268C600BCA429 /* SwiftUIFirestoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0AB5D244268C600BCA429 /* SwiftUIFirestoreTests.swift */; };
 		49A0AB69244268C600BCA429 /* SwiftUIFirestoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0AB68244268C600BCA429 /* SwiftUIFirestoreUITests.swift */; };
 		49A0AB782442694F00BCA429 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0AB772442694F00BCA429 /* Task.swift */; };
+		49A0AB7D2442874E00BCA429 /* TaskCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0AB7C2442874E00BCA429 /* TaskCellViewModel.swift */; };
+		49A0AB7F24428AEE00BCA429 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0AB7E24428AEE00BCA429 /* TaskListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		49A0AB68244268C600BCA429 /* SwiftUIFirestoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIFirestoreUITests.swift; sourceTree = "<group>"; };
 		49A0AB6A244268C600BCA429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49A0AB772442694F00BCA429 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		49A0AB7C2442874E00BCA429 /* TaskCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellViewModel.swift; sourceTree = "<group>"; };
+		49A0AB7E24428AEE00BCA429 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 				49A0AB7924426B2B00BCA429 /* App */,
 				49A0AB762442692800BCA429 /* Model */,
 				49A0AB7A24426B5800BCA429 /* Views */,
+				49A0AB7B2442872C00BCA429 /* ViewModels */,
 				49A0AB4C244268C600BCA429 /* Assets.xcassets */,
 				49A0AB51244268C600BCA429 /* LaunchScreen.storyboard */,
 				49A0AB54244268C600BCA429 /* Info.plist */,
@@ -161,6 +166,15 @@
 				49A0AB4A244268C500BCA429 /* TaskListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		49A0AB7B2442872C00BCA429 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				49A0AB7C2442874E00BCA429 /* TaskCellViewModel.swift */,
+				49A0AB7E24428AEE00BCA429 /* TaskListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +312,8 @@
 				49A0AB47244268C500BCA429 /* AppDelegate.swift in Sources */,
 				49A0AB49244268C500BCA429 /* SceneDelegate.swift in Sources */,
 				49A0AB4B244268C500BCA429 /* TaskListView.swift in Sources */,
+				49A0AB7D2442874E00BCA429 /* TaskCellViewModel.swift in Sources */,
+				49A0AB7F24428AEE00BCA429 /* TaskListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
